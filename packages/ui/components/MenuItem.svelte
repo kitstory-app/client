@@ -17,14 +17,14 @@
 
 <svelte:element
   this={as ?? "div"}
-  id="menu-item"
+  data-menu-item=""
   class="flex items-center group hover:bg-neutral-800/60 duration-150 transition-color rounded-md"
 >
   <a
     href="#"
     class="py-2 px-2.5 inline-flex items-center flex-1 gap-x-2 cursor-pointer"
   >
-    <Icon size={22} class="opacity-60 group-hover:opacity-100" />
+    <Icon size={20} class="opacity-60 group-hover:opacity-100" />
     {#if children}
       <span class="flex-1 select-none truncate">
         {@render children?.()}

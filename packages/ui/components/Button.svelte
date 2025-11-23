@@ -2,14 +2,15 @@
   import type { Snippet } from "svelte";
   import type { HTMLButtonAttributes } from "svelte/elements";
   import { cva } from "class-variance-authority";
+  import { twMerge } from "tailwind-merge";
 
   interface Props extends HTMLButtonAttributes {
-    children: Snippet;
+    children?: Snippet;
 
     leftSlot?: Snippet;
     rightSlot?: Snippet;
 
-    icon?: Snippet;
+    icon?: boolean;
 
     size?: "small" | "big";
     variant?: "primary" | "secondary";
@@ -27,12 +28,15 @@
   }: Props = $props();
 
   const button = cva(
-    ["rounded-md inline-flex items-center gap-x-1 cursor-pointer", className],
+    twMerge(
+      "rounded-sm inline-flex items-center gap-x-1.5 cursor-pointer transition-colors",
+      className as string,
+    ),
     {
       variants: {
         variant: {
-          primary: "border border-red-400",
-          secondary: "hover:bg-red-300",
+          primary: "border border-red-500 hover:bg-red-900",
+          secondary: "hover:bg-red-500/40",
         },
         size: {
           small: !icon ? "px-2 py-1" : "p-1.5",
@@ -53,7 +57,7 @@
   {#if leftSlot}
     {@render leftSlot?.()}
   {/if}
-  {@render children()}
+  {@render children?.()}
   {#if rightSlot}
     {@render rightSlot?.()}
   {/if}

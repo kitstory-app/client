@@ -1,17 +1,18 @@
 <script lang="ts">
 	import "../app.css";
-	import { onMount } from "svelte";
 
 	import interFont from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
 	import interFont700 from "@fontsource/inter/files/inter-latin-700-normal.woff2?url";
-    import Navbar from "$lib/components/Navbar.svelte";
+	import Navbar from "$lib/components/Navbar.svelte";
+	import { pwaInfo } from "virtual:pwa-info";
 
 	const { children } = $props();
 
-	onMount(() => {});
+	const webManifest = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : "");
 </script>
 
 <svelte:head>
+	{@html webManifest}
 	<!-- Preload fonts -->
 	<link
 		rel="preload"
@@ -33,7 +34,7 @@
 <div id="wrapper" class="flex gap-x-4">
 	<!-- <aside class="shrink-0">sidebar</aside> -->
 	<div
-		class="flex-1 dark:bg-neutral-900 bg-white dark:border-neutral-800 p-3 rounded-tl-sm h-[calc(theme(height.dvh)-calc(var(--nav-padding-y)*4))]"
+		class="flex-1 dark:bg-neutral-900 bg-white dark:border-neutral-800 h-[calc(theme(height.dvh)-calc(var(--nav-padding-y)*6.25))]"
 	>
 		<main id="skip-content">
 			{@render children()}
