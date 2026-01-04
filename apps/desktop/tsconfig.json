@@ -10,6 +10,12 @@
     "sourceMap": true,
     "strict": true,
     "moduleResolution": "bundler"
+  },
+  "typeAcquisition": {
+    "include": [
+      "packages/ui/*",
+      "packages/shared/*"
+    ]
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   // except $lib which is handled by https://kit.svelte.dev/docs/configuration#files
