@@ -152,13 +152,6 @@ importers:
   packages/tsconfig: {}
 
   packages/ui:
-    dependencies:
-      '@fontsource/azeret-mono':
-        specifier: ^5.2.9
-        version: 5.2.9
-      '@fontsource/inter':
-        specifier: ^5.2.6
-        version: 5.2.6
     devDependencies:
       '@lucide/svelte':
         specifier: ^0.540.0

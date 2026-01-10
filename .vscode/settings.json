@@ -4,5 +4,6 @@
   ],
   "files.associations": {
     "tsconfig.json": "jsonc"
-  }
+  },
+  "tailwindCSS.experimental.configFile": "./packages/ui/global.css"
 }
